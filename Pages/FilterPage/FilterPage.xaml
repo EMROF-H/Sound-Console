@@ -1,0 +1,90 @@
+﻿<Page x:Class="SoundConsole.Pages.FilterPage.FilterPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SoundConsole.Pages.FilterPage"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d" 
+      d:DesignHeight="360" d:DesignWidth="600"
+      Title="FilterPage">
+    <Page.Resources>
+        <Style x:Key="MeyFocusVisual" TargetType="{x:Type Button}" >
+            <!--去掉默认的Tab选择虚框-->
+            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        </Style>
+        <SolidColorBrush x:Key="Main_Color" Color="#03A9F4"></SolidColorBrush>
+    </Page.Resources>
+
+    <Canvas Height="360" Width="600">
+        <ComboBox Name="ComboBoxFilterType" Canvas.Left="60" Canvas.Top="60" Width="120" Height="40"
+                  materialDesign:HintAssist.Hint="Filter Type" FontSize="13" Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                  DropDownClosed="ComboBoxFilterType_DropDownClosed">
+            <ComboBoxItem>Low Pass</ComboBoxItem>
+            <ComboBoxItem>High Pass</ComboBoxItem>
+            <ComboBoxItem>Band Pass</ComboBoxItem>
+            <ComboBoxItem>Band Stop</ComboBoxItem>
+        </ComboBox>
+
+        <ComboBox Name="ComboBoxWindowType" Canvas.Left="300" Canvas.Top="60" Width="120" Height="40"
+                  materialDesign:HintAssist.Hint="Window Type" FontSize="13" Style="{StaticResource MaterialDesignFloatingHintComboBox}">
+            <ComboBoxItem>Rectangle</ComboBoxItem>
+            <ComboBoxItem>Hanning</ComboBoxItem>
+            <ComboBoxItem>Hamming</ComboBoxItem>
+            <ComboBoxItem>Blackman</ComboBoxItem>
+            <ComboBoxItem>Bartlett</ComboBoxItem>
+        </ComboBox>
+
+        <TextBox Name="TextBoxOrder" Canvas.Left="60" Canvas.Top="240" Width="120" Height="40"
+            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+            Text="10"
+            VerticalAlignment="Center"
+            materialDesign:TextFieldAssist.HasClearButton="True"
+            materialDesign:TextFieldAssist.PrefixText="N=">
+            <materialDesign:HintAssist.Hint>
+                <StackPanel Orientation="Horizontal" Margin="-2 0 0 0">
+                    <TextBlock Text="Order" />
+                </StackPanel>
+            </materialDesign:HintAssist.Hint>
+        </TextBox>
+
+        <TextBox Name="TextBoxFrequencyLow" Canvas.Left="60" Canvas.Top="150" Width="120" Height="40"
+            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+            Text="1000"
+            VerticalAlignment="Center"
+            materialDesign:TextFieldAssist.HasClearButton="True"
+            materialDesign:TextFieldAssist.PrefixText="Fl="
+            materialDesign:TextFieldAssist.SuffixText="Hz"
+                 IsEnabled="False">
+            <materialDesign:HintAssist.Hint>
+                <StackPanel Orientation="Horizontal" Margin="-2 0 0 0">
+                    <TextBlock Text="Frequency Low" />
+                </StackPanel>
+            </materialDesign:HintAssist.Hint>
+        </TextBox>
+
+        <TextBox Name="TextBoxFrequencyHigh" Canvas.Left="300" Canvas.Top="150" Width="120" Height="40"
+            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+            Text="1000"
+            VerticalAlignment="Center"
+            materialDesign:TextFieldAssist.HasClearButton="True"
+            materialDesign:TextFieldAssist.PrefixText="Fh="
+            materialDesign:TextFieldAssist.SuffixText="Hz"
+                 IsEnabled="False">
+            <materialDesign:HintAssist.Hint>
+                <StackPanel Orientation="Horizontal" Margin="-2 0 0 0">
+                    <TextBlock Text="Frequency High" />
+                </StackPanel>
+            </materialDesign:HintAssist.Hint>
+        </TextBox>
+
+        <Button Name="ButtonFilter" Canvas.Left="300" Canvas.Top="240" Width="120" Height="40"
+                Style="{DynamicResource MaterialDesignRaisedButton}"
+                Content="Filter" Click="ButtonFilter_Click">
+        </Button>
+
+        <ProgressBar Name="ProgressBarLeft" Canvas.Left="60" Canvas.Top="300" Width="360" Height="10" Visibility="Hidden"/>
+        <ProgressBar Name="ProgressBarRight" Canvas.Left="60" Canvas.Top="310" Width="360" Height="10" Visibility="Hidden"/>
+        <ProgressBar Name="ProgressBarWrite" Canvas.Left="60" Canvas.Top="320" Width="360" Height="10" Visibility="Hidden"/>
+    </Canvas>
+</Page>

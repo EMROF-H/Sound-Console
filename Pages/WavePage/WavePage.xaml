@@ -1,0 +1,35 @@
+﻿<Page x:Class="SoundConsole.Pages.WavePage.WavePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SoundConsole.Pages.WavePage"
+      mc:Ignorable="d" 
+      d:DesignHeight="360" d:DesignWidth="600"
+      Title="WavePage"
+      MouseWheel="Page_MouseWheel">
+
+    <Canvas>
+        <Rectangle Canvas.Left="20" Canvas.Top="20" Width="560" Height="320" Fill="#A2D8EF"/>
+        <Line X1="50" Y1="180" X2="550" Y2="180" Fill="DarkBlue" Stroke="DarkBlue"></Line>
+        <Line X1="50" Y1="181" X2="550" Y2="181" Fill="DarkBlue" Stroke="DarkBlue"></Line>
+        <Line X1="50" Y1="50" X2="50" Y2="311" Fill="DarkBlue" Stroke="DarkBlue"></Line>
+        <Line X1="51" Y1="50" X2="51" Y2="311" Fill="DarkBlue" Stroke="DarkBlue"></Line>
+        <Path Data="M 47,53 L 54,53 L 50,47 Z" Fill="DarkBlue"></Path>
+        <Path Data="M 547,186 L 547,175 L 554,180 Z" Fill="DarkBlue"></Path>
+
+        <Line X1="151" Y1="180" X2="151" Y2="175" Fill="DarkBlue" Stroke="DarkBlue"></Line>
+        <Line X1="251" Y1="180" X2="251" Y2="175" Fill="DarkBlue" Stroke="DarkBlue"></Line>
+        <Line X1="351" Y1="180" X2="351" Y2="175" Fill="DarkBlue" Stroke="DarkBlue"></Line>
+        <Line X1="451" Y1="180" X2="451" Y2="175" Fill="DarkBlue" Stroke="DarkBlue"></Line>
+
+        <Label Name="Label1" Content="0.00" Canvas.Left="136" Canvas.Top="180" Foreground="DarkBlue"></Label>
+        <Label Name="Label2" Content="0.00" Canvas.Left="236" Canvas.Top="180" Foreground="DarkBlue"></Label>
+        <Label Name="Label3" Content="0.00" Canvas.Left="336" Canvas.Top="180" Foreground="DarkBlue"></Label>
+        <Label Name="Label4" Content="0.00" Canvas.Left="436" Canvas.Top="180" Foreground="DarkBlue"></Label>
+
+        <Canvas Name="GraphicCanvas" Width="500" Height="260" Canvas.Left="50" Canvas.Top="50">
+            <Polyline x:Name="Graphic" StrokeThickness="1" Stroke="DarkBlue"/>
+        </Canvas>
+    </Canvas>
+</Page>
